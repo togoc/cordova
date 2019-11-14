@@ -32,3 +32,22 @@
 [参考链接：https://www.jianshu.com/p/2e9bebb73d37](https://www.jianshu.com/p/2e9bebb73d37)
 
 [参考链接：https://blog.csdn.net/bluefish_flying/article/details/78012262](https://blog.csdn.net/bluefish_flying/article/details/78012262)
+
+
+### vue cli3 配置问题
+* vue.config.js: 
+  
+  ```js 
+    module.exports = {
+        publicPath: './',//必须
+        outputDir:'../demo/www'//参考
+    }
+  ```
+* App.vue:  
+
+  ```js 
+    created() {
+    this.$router.push("/")
+  }
+  ```
+  * 如果你的`App.vue`不充当切换路由的作用(仅仅用作`<router-view>`)必须重新插入一个起始路径, 因为程序打包打开方式跟本地打开html文件差不多 ( 类似`http://localhost:8000/index.html` ) , 路由起始的定向都会失效 , 会出现画面空白的情况. 应该还有其他更好解决的办法, 目前暂且这样解决. 

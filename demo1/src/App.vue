@@ -1,32 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <el-header>Header</el-header>
+    <el-container>
+      <el-aside width="150px">
+        <el-menu default-active="1">
+          <router-link to="/show">
+            <el-menu-item index="1">show</el-menu-item>
+          </router-link>
+          <router-link to="/home">
+            <el-menu-item index="2">HOme</el-menu-item>
+          </router-link>
+        </el-menu>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
   </div>
 </template>
 
+<script>
+export default {
+  created() {
+    this.$router.push("/show")
+  }
+};
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.el-header {
   text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
+  line-height: 60px;
+  background-color: #b3c0d1;
   font-weight: bold;
-  color: #2c3e50;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.el-main {
+  height: 500px;
+  background-color: #e9eef3;
 }
 </style>
